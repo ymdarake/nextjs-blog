@@ -1,10 +1,10 @@
 ---
-title: "Rustで作るBEAM VMライクなLanguage VM - 1"
+title: "Rustで作るBEAMライクなLanguage VM - 1"
 date: "2022-02-03"
 ---
 
 面白そうなブログ記事(シリーズ)を見つけた。
-RustでBEAM VM(Erlang, Elixirのアレ)ライクなVMを作ってみよう、というもの。
+RustでBEAM(Erlang, Elixirのアレ)ライクなVMを作ってみよう、というもの。
 
 [So You Want to Build a Language VM - Part 00 - Computer Hardware Crash Course](https://blog.subnetzero.io/post/building-language-vm-part-00/)
 
@@ -14,12 +14,28 @@ RustでBEAM VM(Erlang, Elixirのアレ)ライクなVMを作ってみよう、と
 
 なかなかの長編ポストだ。
 
-いまさっき発見して[Part 00]((https://blog.subnetzero.io/post/building-language-vm-part-00/))を読み終えたところで、これから[Part 01]((https://blog.subnetzero.io/post/building-language-vm-part-01/))をやっていく。
+いまさっき発見して[Part 00](https://blog.subnetzero.io/post/building-language-vm-part-00/)を読み終えたところで、これから[Part 01](https://blog.subnetzero.io/post/building-language-vm-part-01/)をやっていく。
 
 
 ネット上にはtree-walkingあるいはstack-basedなVMの例はたくさんあるし、せっかくやるならregister basedなVMで楽しんでいこう、とのこと。
 
 きっと楽しい人なんだろうな。いいね。
+
+
+Rustをインストールして、
+
+
+https://rustup.rs/
+
+```sh
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+GitHubに[Part 01](https://blog.subnetzero.io/post/building-language-vm-part-01/)のコードを置く。
+
+https://github.com/ymdarake/iridium
+
+ついでにGitHub Actionsも設定。
 
 
 次回に続く。
