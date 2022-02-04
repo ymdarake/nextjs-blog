@@ -4,7 +4,9 @@ date: "2022-02-04"
 ---
 
 引き続き、BEAM-like VM in Rustをしていく。
-今日は (Part 02)[https://blog.subnetzero.io/post/building-language-vm-part-02/]。
+
+今日は [Part 02](https://blog.subnetzero.io/post/building-language-vm-part-02/)。
+
 
 VMにプログラムとプログラムカウンタを持たせて、ループして処理していく。
 
@@ -13,7 +15,7 @@ VMにプログラムとプログラムカウンタを持たせて、ループし
 
 プログラムの中身は別途オペコードをenumで定義する。
 
-ちなみにレジスターが32bit、そのうちオペコードが8bitの設計。（これは(Part 01)[https://blog.subnetzero.io/post/building-language-vm-part-01/]で話があった）
+ちなみにレジスターが32bit、そのうちオペコードが8bitの設計。（これは [Part01](https://blog.subnetzero.io/post/building-language-vm-part-01/) で話があった）
 
 VMが入力のプログラム(いまはただの`Vec<u8>`)をループしてOpcodeを一つずつ処理するように書いて、
 
@@ -24,6 +26,7 @@ Part02にしてプログラム(とテスト)の骨格が出来てきていい感
 
 
 **おまけ**
+
 ブログの筆者がテストを逐一書いていくスタイルなので、
 それならばということでGitHub Actionsを追加して、
 [Codecov](https://about.codecov.io/)でRustのテストカバレッジを測定できるようにした。
