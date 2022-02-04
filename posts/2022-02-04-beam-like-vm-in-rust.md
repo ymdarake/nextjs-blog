@@ -1,41 +1,39 @@
 ---
-title: "Rustで作るBEAMライクなLanguage VM - 1"
-date: "2022-02-03"
+title: "Rustで作るBEAMライクなLanguage VM - 2"
+date: "2022-02-04"
 ---
 
-面白そうなブログ記事(シリーズ)を見つけた。
-RustでBEAM(Erlang, Elixirのアレ)ライクなVMを作ってみよう、というもの。
+引き続き、BEAM-like VM in Rustをしていく。
+今日は (Part 02)[https://blog.subnetzero.io/post/building-language-vm-part-02/]。
 
-[So You Want to Build a Language VM - Part 00 - Computer Hardware Crash Course](https://blog.subnetzero.io/post/building-language-vm-part-00/)
+VMにプログラムとプログラムカウンタを持たせて、ループして処理していく。
 
-少し前に[インタープリタをGoで作ってみて](https://interpreterbook.com/)、かつElixirやRustの入門資料を眺めていた自分には、一石三鳥(?)の内容に思える。
-
-[Part 00](https://blog.subnetzero.io/post/building-language-vm-part-00/) 〜 [Part 33](https://blog.subnetzero.io/post/building-language-vm-part-33/)が存在する模様。
-
-なかなかの長編ポストだ。
-
-いまさっき発見して[Part 00](https://blog.subnetzero.io/post/building-language-vm-part-00/)を読み終えたところで、これから[Part 01](https://blog.subnetzero.io/post/building-language-vm-part-01/)をやっていく。
+この辺は後でどんどん最適化？していくらしい。
 
 
-ネット上にはtree-walkingあるいはstack-basedなVMの例はたくさんあるし、せっかくやるならregister basedなVMで楽しんでいこう、とのこと。
+プログラムの中身は別途オペコードをenumで定義する。
 
-きっと楽しい人なんだろうな。いいね。
+ちなみにレジスターが32bit、そのうちオペコードが8bitの設計。（これは(Part 01)[https://blog.subnetzero.io/post/building-language-vm-part-01/]で話があった）
+
+VMが入力のプログラム(いまはただの`Vec<u8>`)をループしてOpcodeを一つずつ処理するように書いて、
+
+テストを書いて今日のところはお開き。
 
 
-Rustをインストールして、
+Part02にしてプログラム(とテスト)の骨格が出来てきていい感じ。
 
 
-https://rustup.rs/
+**おまけ**
+ブログの筆者がテストを逐一書いていくスタイルなので、
+それならばということでGitHub Actionsを追加して、
+[Codecov](https://about.codecov.io/)でRustのテストカバレッジを測定できるようにした。
 
-```sh
-$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
 
-GitHubに[Part 01](https://blog.subnetzero.io/post/building-language-vm-part-01/)のコードを置く。
+[CodecovのBotがPRにレポートしてくる設定](https://github.com/apps/codecov)も追加。
 
-https://github.com/ymdarake/iridium
 
-ついでにGitHub Actionsも設定。
+今回のコードはこちら。
+[https://github.com/ymdarake/iridium/pull/2](https://github.com/ymdarake/iridium/pull/2)
 
 
 次回に続く。
